@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delicious</title>
+  <link rel="icon" type="image/x-icon" href="Restaurent_images/pie_logo.png">
+  <link rel="stylesheet" href="style_restaurent.css">
+  <!-- bootstrap files -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+
+
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+  <!-- heading font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <!-- paragraph fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  
+<!-- boxicons link -->
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- boostrap icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    h1, h2, h3, h4, h5, h5 {
+    font-family: "Satisfy", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.carousel_paragraph{
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26px;
+    word-spacing: 4px;
+    font-style: italic;
+}
+    .navbar-brand{
+      font-family: "Satisfy", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 32px;
+      color: white;
+    }
+    /* carousal image  */
+  .carousel-image {
+    width: 100%;
+    height: auto;
+  }
+  .nav-link{
+    color: white;
+  }
+
+    /* carousel controls css start */
+    .carousel-control-prev,
+.carousel-control-next {
+width: 80px; /* Set the width of the clickable area */
+height: 80px; /* Set the height of the clickable area */
+border-radius: 50%; /* Make the clickable area circular */
+background-color: rgba(0, 0, 0, 0.5); /* Set background color for visibility (adjust as needed) */
+top: 50%; /* Position the arrows vertically centered */
+transform: translateY(-50%); /* Position the arrows vertically centered */
+z-index: 1; /* Ensure the arrows appear above the image */
+margin-top: -20px; /* Adjust the margin to move the arrows slightly towards the center */
+}
+
+.carousel-control-prev {
+left: 20px; /* Position the left arrow towards the left */
+}
+
+.carousel-control-next {
+right: 20px; /* Position the right arrow towards the right */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+width: 30px; /* Set the width of the arrow icon */
+height: 30px; /* Set the height of the arrow icon */
+}
+
+.carousel-control-prev-icon:before,
+.carousel-control-next-icon:before {
+content: ''; /* Clear default content */
+border-style: solid; /* Set border style */
+border-width: 2px 2px 0 0; /* Set border width for arrow shape */
+position: absolute; /* Position the arrow icon */
+top: 50%; /* Position the arrow icon vertically centered */
+left: 50%; /* Position the arrow icon horizontally centered */
+transform: translate(-50%, -50%) rotate(-135deg); /* Rotate the arrow icon */
+}
+
+.carousel-control-next-icon:before {
+transform: translate(-50%, -50%) rotate(45deg); /* Rotate the arrow icon */
+}
+
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+outline: none; /* Remove the outline on focus */
+}
+
+  /* Custom CSS for changing color on hover */
+  .navbar-light .navbar-nav .nav-link:hover,
+        .navbar-light .navbar-brand:hover {
+            color: #ffa500 !important;
+        }
+/* carousel control css end */
+
+/* Active and hover styles for navbar links */
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus,
+.navbar-nav .nav-item .nav-link.active {
+    color: orange !important;
+}
+
+/* active hove css end */
+
+
+
+
+</style>
+
+</head>
+<body>
+<header>
+    <!-- Navigation bar start here -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.308); color: white;">
+    <a class="navbar-brand px-4 active" href="index.html" style="font-size: 3vw;">Delicious</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link scrollto" href="#home">Home</a>
+          </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#specials">Specials</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="event.html">
+                  Events<sup><img src="Restaurent_images/events/newicon.gif"></sup></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#chefs">Chefs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#about_us">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#cart">Cart&nbsp;<i class="fa fa-shopping-cart"></i></a>
+          </li>                    
+        </ul>
+        <a id="navbookatable" href="book.html" style="text-decoration: none;">Book a Table</a>
+
+        <!-- note: serach bar -->
+
+        <div class="input-wrapper">
+
+          <input
+            placeholder="Search.."
+            class="input"
+            name="text"
+            type="text"
+            id="search-input"
+            oninput="filterOptions()"
+          />
+          <div class="dropdown text-warning" id="dropdown">
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Aloo Bonda</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Samosa</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Paneer Tikka</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Spicy Indian Cucumber Salad</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Fruit Custard Recipe</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Sprouted Mung Bean Salad</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Misal</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Shahi paneer</div>
+            <div class="dropdown-item" onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">Dal tadka</div>            
+          </div>
+        </div>
+        
+
+        <!--note: search bar end -->
+
+    </div>
+</nav>
+    <!-- Navigation bar end here -->
+</header>
+
+<!-- Carousal start here -->
+  <section id="home" style="margin: 0; padding: 0;">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="image-overlay"></div>
+            <img src="Restaurent_images/slide/slide-1.jpg" class="d-block w-100 carousel-image" alt="...">
+            <div class="carousel-caption d-flex justify-content-center align-items-center h-100">
+                <div>
+                    <h5 style="font-size: 48px; font-weight: 700; margin-bottom: 30px;"><span style="color: hwb(36 23% 0%);">Delicious</span> Restaurant</h5>
+                    <p class="carousel_paragraph">Enjoy a one-of-a-kind dining experience in a cosy restaurant surrounded<br>
+                         by lush greenery and warm lighting. The ambiance promises comfort and<br>
+                          luxury, while the exquisite cuisine entices you to return for more<br>
+                           gastronomic delights.</p>
+                           <button id="bookatable" onclick="window.location.href='#menu'">Our Menu</button>
+                           <button id="bookatable" onclick="window.location.href='#book-a-table'">Book a table</button>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="image-overlay"></div>
+            <img src="Restaurent_images/slide/slide-2.jpg" class="d-block w-100 carousel-image" alt="...">
+            <div class="carousel-caption d-flex justify-content-center align-items-center h-100">
+                <div>
+                    <h5 style="font-size: 48px; font-weight: 700; margin-bottom: 30px;"><span style="color: #ffb03b;">Joyful</span> Gathering</h5>
+                    <p class="carousel_paragraph">Come enjoy a memorable dinner experience with us! Our chic décor,<br>
+                         delicious food, and premium wines are ideal for entertaining.<br>
+                          Experience our gracious welcome and make lifelong <br>
+                          memories.</p>
+                          <button id="bookatable" onclick="window.location.href='#menu'">Our Menu</button>
+                          <button id="bookatable" onclick="window.location.href='#book-a-table'">Book a table</button>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="image-overlay"></div>
+            <img src="Restaurent_images/slide/slide-3.jpg" class="d-block w-100 carousel-image" alt="...">
+            <div class="carousel-caption d-flex justify-content-center align-items-center h-100">
+                <div>
+                    <h5 style="font-size: 48px; font-weight: 700; margin-bottom: 30px;"><span style="color: #ffb03b;">Evening</span> Dine Out</h5>
+                    <p class="carousel_paragraph">Come enjoy the enchantment of dining outside at our restaurant on the<br>
+                         street. Savour a variety of cuisines in a lively, lively setting.<br>
+                          Come enjoy a delicious evening that will never be<br>
+                           forgotten.</p>
+                           <button id="bookatable" onclick="window.location.href='#menu'">Our Menu</button>
+                           <button id="bookatable" onclick="window.location.href='#book-a-table'">Book a table</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+</section>
+<!-- Carousal end here -->
+
+
+<main id="main">
+
+  <!--  About Section  -->
+  <section id="about" class="about">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("Restaurent_images/about.jpg");'>
+          <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+        </div>
+
+        <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+          <div class="content">
+            <h3>Indulge in the Art of Dining <strong>Your Culinary Adventure Begins Here</strong></h3>
+            <p>
+              Join us for a magical dining experience. The ambiance, delicious food, and exceptional service of our restaurant take you to a place beyond ordinary.
+            </p>
+            <p class="fst-italic">
+              Our menu, a celebration of flavors, offers diverse dishes crafted with love, respecting culinary traditions. Each bite, each dish, an adventure.
+            </p>
+            <ul>
+              <li><i class="bx bx-check-double"></i> Have a memorable meal. Each dish reflects passion, quality, and service.</li>
+              <li><i class="bx bx-check-double"></i> Dine joyfully, celebrate flavors. Each dish a journey, each taste a revelation.</li>
+              <li><i class="bx bx-check-double"></i> Come have dinner with us and experience a new cuisine. Every meal serves as evidence of our dedication to quality, and every taste pays homage to the craft of cooking.</li>
+            </ul>
+            <p>
+              Join us for a special meal experience. Our meticulously prepared dishes are evidence of our devotion to quality. We create an ambiance that is just as amazing as our cuisine. Every taste pays homage to our love of the culinary arts.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+<!-- why choose us start  -->
+<section id="why-us" class="why-us">
+    <div class="container mt-5">
+
+      <div class="section-title">
+        <h2 class="display-7 fw-bold" style="text-align: center;">Why choose <span style="color:orange">Our Restaurant</span></h2>
+        <p style="text-align: center;">Choose our restaurant for an outstanding eating experience characterised by superb food, a creative menu, and first-rate service.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4">
+          <div class="box">
+            <span>01</span>
+            <h4>Superior Tastes</h4>
+            <p>To please a wide range of palates, our menu offers a varied assortment of gourmet cuisine.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="box">
+            <span>02</span>
+            <h4>Mastery of Cooking</h4>
+            <p>Because of the exceptional culinary abilities of our chefs, we provide a memorable and enjoyable dining experience.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="box">
+            <span>03</span>
+            <h4>Customer Centricity</h4>
+            <p>Our first priority is your pleasure, and we'll provide you individualised attention to make your meal special.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- why choose us end  -->
+
+    <!-- Services Section-->
+  <section>
+    <div class="container d-flex flex-column justify-content-between text-center mt-5" style=" min-height: 400px;">
+      <header class="mb-5">
+        <h2 class="display-7 fw-bold" class="handwriting-text">We provide the <span style="color:orange">following</span></h2>
+        <h5 class=" text-gray-500 fw-normal">Our Specialities</h5>
+      </header>
+      <div class="row gy-4">
+        
+        <div class="hover-icon-primary col-lg-4 col-md-6 main_div" style=" display: flex; flex-direction: column; justify-content: flex-start; height: 300px;">
+          <div class="hover-icon-primary col-lg-4 col-md-6 ml-auto icon_1" style="border: 2px dotted orange; border-radius: 50%; display: flex; flex-direction: column; justify-content: center;"><i class="far fa-heart fa-2x" style="color: orange;"></i></div>
+          <h5 class="mt-auto" style="font-weight: bold;">Clean Environment</h5>
+          <p class="mb-0 text-muted">Savour culinary delights in our immaculate environment, where sustainability and cleanliness combine to provide a dining experience that is both tasty and refreshing.</p>
+        </div>
+        <div class="hover-icon-primary col-lg-4 col-md-6 main_div" style=" display: flex; flex-direction: column; justify-content: flex-start; height: 300px;">
+          <div class="hover-icon-primary col-lg-4 col-md-6 icon_1" style="border: 2px dotted orange; border-radius: 50%; display: flex; flex-direction: column; justify-content: center;"><i class="fas fa-user-tie fa-2x" style="color: orange;""></i></div>
+          <h5 class="mt-auto" style="font-weight: bold;">Lovely &amp; expert chefs</h5>
+          <p class="mb-0 text-muted">Come and enjoy the delicious food that our charming and knowledgeable chefs create by fusing creativity and heritage for a really unique dining experience.</p>
+        </div>
+        <div class="hover-icon-primary col-lg-4 col-md-6 main_div" style=" display: flex; flex-direction: column; justify-content: flex-start; height: 300px;">
+          <div class="hover-icon-primary col-lg-4 col-md-6 icon_1" style="border: 2px dotted orange; border-radius: 50%; display: flex; flex-direction: column; justify-content: center;"><i class="fas fa-hamburger fa-2x" style="color: orange;""></i></div>
+          <h5 class="mt-auto" style="font-weight: bold;">Fresh and tasty food</h5>
+          <p class="mb-0 text-muted">Savour the freshness of our food, where each mouthful bears witness to the excellence and flavour that our restaurant is dedicated to providing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- End Services Section-->
+
+
+
+
+<!-- menu start here -->
+
+<section id="menu" class="menu">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Check our tasty <span>Menu</span></h2>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="menu-flters">
+          <li data-filter="*" class="filter-active">Show All</li>
+          <li data-filter=".filter-starters">Starters</li>
+          <li data-filter=".filter-salads">Salads</li>
+          <li data-filter=".filter-specialty">Specialty</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row menu-container">
+
+      <!-- starters start -->
+      <div class="col-lg-6 menu-item filter-starters">
+        <div class="menu-content">
+            <a href="#" class="menu-item-link" data-name="Aloo Bonda" data-ingredients="Indian Dish made with potaotes" data-price="50">Aloo Bonda</a>
+            <span>₹100</span>
+        </div>
+        <div class="menu-image" style="display: none;">
+            <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+        </div>
+        <div class="menu-ingredients">
+            Indian Dish made with potatoes
+        </div>
+        <button title="Add" class="cssbuttons-io-button add-to-cart">
+            <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+            </svg>
+            <span>Add</span>
+        </button>
+    </div>
+    
+
+    <div class="col-lg-6 menu-item filter-starters">
+      <div class="menu-content">
+          <a href="#" class="menu-item-link" data-name="Samosa" data-ingredients="Made with Potaotes" data-price="10">Samosa</a>
+          <span>₹100</span>
+      </div>
+      <div class="menu-image" style="display: none;">
+          <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+      </div>
+      <div class="menu-ingredients">
+          Made with Potaotes 
+      </div>
+      <button title="Add" class="cssbuttons-io-button add-to-cart">
+          <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+          </svg>
+          <span>Add</span>
+      </button>
+  </div>
+
+  <!-- menu card 3 start -->
+  <div class="col-lg-6 menu-item filter-starters">
+    <div class="menu-content">
+        <a href="#" class="menu-item-link" data-name="Paneer Tikka" data-ingredients="Indian dish made from big dice of paneer marinated" data-price="100">Paneer Tikka</a>
+                <span>₹100</span>
+    </div>
+    <div class="menu-image" style="display: none;">
+        <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+    </div>
+    <div class="menu-ingredients">
+      Indian dish made from big dice of paneer marinated
+    </div>
+    <button title="Add" class="cssbuttons-io-button add-to-cart">
+        <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+        </svg>
+        <span>Add</span>
+    </button>
+</div>
+  <!-- menu card 3 end -->
+
+<!-- starters end -->
+      
+<!-- salads 1 start -->
+<div class="col-lg-6 menu-item filter-salads">
+  <div class="menu-content">
+      <a href="#" class="menu-item-link" data-name="Spicy Indian Cucumber Salad" data-ingredients="Indian dish made from big dice of paneer marinated" data-price="80">Spicy Indian Cucumber Salad</a>
+              <span>₹100</span>
+  </div>
+  <div class="menu-image" style="display: none;">
+      <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+  </div>
+  <div class="menu-ingredients">
+    Indian dish made from big dice of paneer marinated
+  </div>
+  <button title="Add" class="cssbuttons-io-button add-to-cart">
+      <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+      </svg>
+      <span>Add</span>
+  </button>
+</div>
+
+
+<!-- salads 1 end -->
+
+<!-- specialty 1 start -->
+<div class="col-lg-6 menu-item filter-specialty">
+  <div class="menu-content">
+      <a href="#" class="menu-item-link" data-name="Misal" data-ingredients="curd, pav, moth bean, gravy, spiced potatoes" data-price="80">Misal</a>
+              <span>₹100</span>
+  </div>
+  <div class="menu-image" style="display: none;">
+      <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+  </div>
+  <div class="menu-ingredients">
+    curd, pav, moth bean, gravy, spiced potatoes
+  </div>
+  <button title="Add" class="cssbuttons-io-button add-to-cart">
+      <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+      </svg>
+      <span>Add</span>
+  </button>
+</div>
+<!-- specialty 1 end -->
+
+
+      <!-- specialty 2 start -->
+      <div class="col-lg-6 menu-item filter-specialty">
+        <div class="menu-content">
+            <a href="#" class="menu-item-link" data-name="Shahi paneer" data-ingredients="cheese, onions, almond paste, and a rich, spicy tomato-cream sauce" data-price="80">Shahi paneer</a>
+                    <span>₹100</span>
+        </div>
+        <div class="menu-image" style="display: none;">
+            <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+        </div>
+        <div class="menu-ingredients">
+          cheese, onions, almond paste, and a rich, spicy tomato-cream sauce
+        </div>
+        <button title="Add" class="cssbuttons-io-button add-to-cart">
+            <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+            </svg>
+            <span>Add</span>
+        </button>
+      </div>
+      <!-- specialty 2 end -->
+
+<!-- salads 2 start -->
+<div class="col-lg-6 menu-item filter-salads">
+  <div class="menu-content">
+      <a href="#" class="menu-item-link" data-name="Fruit Custard Recipe" data-ingredients="creamy and dreamy custard" data-price="80">Fruit Custard Recipe</a>
+              <span>₹100</span>
+  </div>
+  <div class="menu-image" style="display: none;">
+      <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+  </div>
+  <div class="menu-ingredients">
+    creamy and dreamy custard
+  </div>
+  <button title="Add" class="cssbuttons-io-button add-to-cart">
+      <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+      </svg>
+      <span>Add</span>
+  </button>
+</div>
+<!-- salads 2 start -->
+      
+<!-- salads 3 start -->
+<div class="col-lg-6 menu-item filter-salads">
+  <div class="menu-content">
+      <a href="#" class="menu-item-link" data-name="Sprouted Mung Bean Salad" data-ingredients="sprouted mung beans" data-price="80">Sprouted Mung Bean Salad</a>
+              <span>₹100</span>
+  </div>
+  <div class="menu-image" style="display: none;">
+      <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+  </div>
+  <div class="menu-ingredients">
+    sprouted mung beans
+  </div>
+  <button title="Add" class="cssbuttons-io-button add-to-cart">
+      <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+      </svg>
+      <span>Add</span>
+  </button>
+</div>
+<!-- salads 3 end -->
+
+<!-- specialty 3 start -->
+<div class="col-lg-6 menu-item filter-specialty">
+  <div class="menu-content">
+      <a href="#" class="menu-item-link" data-name="Dal tadka" data-ingredients="toor dal (split yellow pigeon peas)" data-price="100">Dal tadka</a>
+              <span>₹100</span>
+  </div>
+  <div class="menu-image" style="display: none;">
+      <img src="lobster_bisque_image.jpg" alt="Menu Item Image">
+  </div>
+  <div class="menu-ingredients">
+    toor dal (split yellow pigeon peas)
+  </div>
+  <button title="Add" class="cssbuttons-io-button add-to-cart">
+      <svg height="25" width="25" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path class="icon" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="currentColor"></path>
+      </svg>
+      <span>Add</span>
+  </button>
+</div>
+<!-- specialty 3 end -->
+
+    </div>
+
+  </div>
+</section>
+
+<!-- menu end here -->
+      
+<!-- our specials start -->
+<section id="specials" class="specials">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Check our <span>Specials</span></h2>
+      <p>Discover flavours that call you back, where each dish entices you to make the trip back. You are invited to the Gourmet Oasis.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <ul class="nav nav-tabs flex-column">
+          <li class="nav-item" style="border-right: 2px solid ornage;">
+            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Misal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Shahi Paneer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Ramen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Aloo Bonda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Spicy Indian Cucumber Salad</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-9 mt-4 mt-lg-0">
+        <div class="tab-content">
+          <div class="tab-pane active show" id="tab-1">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Spicy mixed-dish from Maharashtra, India.</h3>
+                <p class="fst-italic">Misal is a spicy, nutrient-dense Maharashtra-style dish made with a variety of ingredients. Usually, it's served hot, colourful, and crunchy.</p>
+                <p>Maharashtra, India's spicy and wholesome misal is served with pav, or bread rolls. It's a combination of sprouts cooked with spicy onions and tart tomatoes, enhanced with potatoes and other ingredients. Rich and flavorful, the taste ranges from mildly spicy to extremely spicy.</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="Restaurent_images/specials-1.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-2">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Royal Indian dish with creamy paneer</h3>
+                <p class="fst-italic">Shahi Paneer is a rich, creamy dish with soft paneer in an onion-nut paste, enhanced with yogurt and mild spices</p>
+                <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="Restaurent_images/specials-2.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-3">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Japanese noodle dish, Chinese origin</h3>
+                <p class="fst-italic">Chinese-inspired Japanese noodle soup is known as ramen. It is usually served with meat and vegetables as garnishes in a flavorful broth.</p>
+                <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="Restaurent_images/specials-3.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-4">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Deep-fried Indian snack with potatoes</h3>
+                <p class="fst-italic">Aloo Bonda is a deep-fried Indian snack. It’s made of spiced, mashed potatoes coated in gram flour, offering a crispy exterior and soft, flavorful interior</p>
+                <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="Restaurent_images/specials-4.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-5">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Indian salad with spiced, fresh cucumbers</h3>
+                <p class="fst-italic">In a spicy Indian salad, crunchy cucumbers, citrus, peanuts, and coconut are combined.</p>
+                <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="Restaurent_images/specials-5.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- our specials end here -->
+
+
+
+<!-- About us start -->
+<section id="about_us" class="py-5">
+<div class="container-fluid px-0">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="text-center">
+              <span class="text-muted mb-5" styleoize: 34px;">Our Story</span>
+              <h2 class="display-7 fw-bold">About <span style="color:orange"> Us</span></h2>
+              <p class="lead">Together, the three creative brains Kunal Bisht</<b>Manish Kumar</b>, and <b>Kavya Nagi</b> created a restaurant website that captured their passion and culinary vision while providing a digital entry point into their culinary universe.</p>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card p-0">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2746187/pexels-photo-2746187.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                alt="">
+                        </div>
+                        <div class="card-content d-flex flex-column align-items-center">
+                            <h4 class="pt-2">Kunal Bisht</h4>
+                            <h5>Creative Desinger</h5>
+    
+                            <ul class="social-icons d-flex justify-content-center">
+                                <li style="--i:1">
+                                    <a href="#">
+                                      <span class="fab fa-linkedin"></span>
+                                    </a>
+                                </li>
+                                <li style="--i:2">
+                                    <a href="#">
+                                        <span class="fab fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li style="--i:3">
+                                    <a href="#">
+                                        <span class="fab fa-github"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card p-0">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/381843/pexels-photo-381843.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                alt="">
+                        </div>
+                        <div class="card-content d-flex flex-column align-items-center">
+                            <h4 class="pt-2">Manish Kumar</h4>
+                            <h5>Creative Desinger</h5>
+    
+                            <ul class="social-icons d-flex justify-content-center">
+                                <li style="--i:1">
+                                    <a href="#">
+                                      <span class="fab fa-linkedin"></span>
+                                    </a>
+                                </li>
+                                <li style="--i:2">
+                                    <a href="#">
+                                        <span class="fab fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li style="--i:3">
+                                    <a href="#">
+                                      <span class="fab fa-github"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card p-0">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                alt="">
+                        </div>
+                        <div class="card-content d-flex flex-column align-items-center">
+                            <h4 class="pt-2">Kavya Nagi</h4>
+                            <h5>Creative Desinger</h5>
+    
+                            <ul class="social-icons d-flex justify-content-center">
+                                <li style="--i:1">
+                                    <a href="#">
+                                        <span class="fab fa-linkedin"></span>
+                                    </a>
+                                </li>
+                                <li style="--i:2">
+                                    <a href="#">
+                                        <span class="fab fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li style="--i:3">
+                                    <a href="#">
+                                      <span class="fab fa-github"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+<!-- About us end -->
+
+<!-- book a table start-->
+<section id="book-a-table" class="book-a-table">
+  <div class="container">
+    <div class="section-title">
+      <h2>Book a <span>Table</span></h2>
+      <p>To enjoy our delicious dishes in a cosy and welcoming atmosphere, simply reserve a table at our restaurant.</p>
+    </div>
+    <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" id="booking-form" onsubmit="sendEmail(); return false;">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+          <div class="validate"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+          <div class="validate"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+          <input type="text" class="form-control" name="phone" id="phone" placeholder="+XX Your Phone" maxlength="14" value="+91 " required>
+          <div class="validate"></div>
+        </div>
+                
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <input type="date" name="date" class="form-control" id="date" placeholder="Date" required>
+          <div class="validate"></div>
+        </div>        
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <input type="time" class="form-control" name="time" id="time" placeholder="Time" required>
+          <div class="validate"></div>
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <input type="number" class="form-control" name="people" id="people" placeholder="# of people" min="1">
+          <div class="validate"></div>
+        </div>        
+      </div>
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" id="message" placeholder="Message"></textarea>
+        <div class="validate"></div>
+      </div>
+      <div class="mb-3">
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+      </div>
+      <div class="text-center">
+        <button type="submit" id="submit-button">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- book a table end -->
+
+
+<!--  Gallery Section  -->
+<section id="gallery" class="gallery">
+  <div class="container-fluid">
+    <div class="section-title">
+      <h2 class="display-7 fw-bold" style="text-align: center;">Some photos from <span style="color:orange">Our Restaurant</span></h2>
+      <p style="text-align: center;">Take in the eye-catching photos on our website to learn more about the gastronomic adventure and warm ambience of our restaurant.</p>
+    </div>
+    <div class="row g-0">
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-1.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-2.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-2.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-3.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-3.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-4.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-5.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-5.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-6.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-6.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-7.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-7.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="assets/img/gallery/gallery-8.jpg" class="gallery-lightbox">
+            <img src="Restaurent_images/gallery/gallery-8.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+    </div>
+ </div>
+
+
+
+</section>
+<!-- gallery section end -->
+
+<!-- Start Chefs Section -->
+<section id="chefs" class="chefs">
+  <div class="container">
+    <div class="section-title">
+      <h2  class="display-7 fw-bold" style="text-align: center;">Our Proffesional <span style="color:orange">Chefs</span></h2>
+      <p  style="text-align: center;">Discover more about our talented chefs on our website; they are the masters of cuisine responsible for the outstanding dining experience we guarantee.</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="member">
+          <div class="pic"><img src="Restaurent_images/chefs/chef-1.jpg" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Walter White</h4>
+            <span>Master Chef</span>
+            <div class="social">
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-facebook"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="member">
+          <div class="pic"><img src="Restaurent_images/chefs/chef_3.jpg" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>Sarah Jhonson</h4>
+            <span>Patissier</span>
+            <div class="social">
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-facebook"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="member">
+          <div class="pic"><img src="Restaurent_images/chefs/chef_2.jpg" class="img-fluid" alt=""></div>
+          <div class="member-info">
+            <h4>William Anderson</h4>
+            <span>Cook</span>
+            <div class="social">
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-facebook"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Chefs Section -->
+
+
+
+<!-- testimonials start -->
+<section>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-xl-8 text-center">
+      <h3 class="mb-4">Testimonials</h3>
+      <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+        Come to our restaurant for a wonderful eating experience. Savour the tasty dishes made with local, fresh ingredients, the friendly atmosphere, and the attentive service. An absolutely amazing culinary journey to cherish!</p>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-md-3 mb-5 mb-md-3 carding " >
+      <div class="d-flex justify-content-center mb-4">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+          class="rounded-circle shadow-1-strong" width="150" height="150" />
+      </div>
+      <h5 class="mb-3">Maria Smantha</h5>
+      <h6 class="text-primary mb-3 text-uppercase">customer</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>Wonderful atmosphere, excellent service, and delicious food. A very memorable dinner experience. Looking forward to our future visit. Strongly advised! <i class="fas fa-quote-right pe-2"></i>
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star-half-alt fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3 mb-5 mb-md-3 carding" >
+      <div class="d-flex justify-content-center mb-4">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
+          class="rounded-circle shadow-1-strong" width="150" height="150" />
+      </div>
+      <h5 class="mb-3">Lisa Cudrow</h5>
+      <h6 class="text-primary mb-3 text-uppercase">customer</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>Wonderful food, attentive service, and a wonderful atmosphere. An unforgettable culinary adventure. eager for our upcoming visit. An absolute must-try! <i class="fas fa-quote-right pe-2"></i>
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3 mb-md-3 carding" >
+      <div class="d-flex justify-content-center mb-4">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
+          class="rounded-circle shadow-1-strong" width="150" height="150" />
+      </div>
+      <h5 class="mb-3">John Smith</h5>
+      <h6 class="text-primary mb-3 text-uppercase">customer</h6>
+      <p class="px-xl-3">
+        <i class="fas fa-quote-left pe-2"></i>Delicious dishes, excellent service, and a charming atmosphere. A very special dinner experience. eager for our upcoming visit. Definitely worthwhile to try! <i class="fas fa-quote-right pe-2"></i>
+      </p>
+      <ul class="list-unstyled d-flex justify-content-center mb-0">
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="fas fa-star fa-sm text-warning"></i>
+        </li>
+        <li>
+          <i class="far fa-star fa-sm text-warning"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- testimonials end -->
+
+<!-- cart start -->
+<section id="cart">
+  <div class="container">
+
+    <div class="section-title">
+      <h2  class="display-7 fw-bold" style="text-align: center;">Your<span style="color:orange"> Orders</span></h2>
+    </div>
+  </div>
+
+  
+  
+
+  <div class="container mt-4">
+    <div id="message" style="font-size: 52px; text-align: center;"></div>
+  </div>
+  
+  <div class="cart-details w-25" style="display: none;margin-left: 100px; border-radius: 5%;padding:2px 0 5px 5px;">
+    <h3 style="text-align: center;">Order Detail:- 1 </h3>
+    <p><strong>Item:</strong> <span class="cart-item" id="cartItemName">Aloo Bonda</span></p>
+    <p><strong>Ingredients:</strong> <span class="cart-ingredients" id="cartIngredients">Potatoes, Gram flour, Spices</span></p>
+    <p><strong>Price ₹:</strong> <span class="cart-price" id="itemPrice">50</span></p>
+    
+    <!-- Quantity control section -->
+    <div class="quantity-control">
+        <button class="change-quantity decrease-quantity" style="font-weight: bolder;">-</button>
+        <span class="cart-quantity" id="itemQuantity">1</span>
+        <button class="change-quantity increase-quantity" style="font-weight: bolder;">+</button>
+    </div>
+    
+    <!-- Total Price Display -->
+    <p><strong>Total Price ₹:</strong> <span class="cart-total-price" id="totalPrice">50</span></p>
+
+    <div class="cart-buttons">
+        <button class="remove-product">Remove</button>
+        <button class="order-now" style="margin-left: 10px;">Order Now</button>
+    </div>
+</div>
+
+
+
+<!-- Modal Structure -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <h4>Order Details</h4>
+    <form id="orderForm" name="submit-to-google-sheet">
+      <div class="form-group">
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" name="userName" required placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label for="userAddress">Address:</label>
+        <input type="text" id="userAddress" name="userAddress" required placeholder="Enter your address">
+      </div>
+      <div class="form-group">
+        <label for="userMobile">Mobile Number:</label>
+        <input type="tel" id="userMobile" name="userMobile" required placeholder="Enter your mobile number">
+      </div>
+      <div class="form-group">
+        <label for="paymentMode">Payment Mode:</label>
+        <select id="paymentMode" name="paymentMode">
+          <option value="cod">Cash on Delivery (COD)</option>
+          <option value="upi">UPI</option>
+        </select>
+      </div>
+      
+      <!-- UPI ID Field and QR Code (Hidden by default) -->
+      <div id="upiSection" class="form-group" style="display: none;">
+        <label for="upiID">UPI ID:</label>
+        <input type="text" id="upiID" name="upiID" placeholder="Enter your UPI ID">
+        <div id="upiQR" style="margin-top: 10px; text-align: center;">
+          <img src="Restaurent_images/paymentqr.jpg" alt="UPI QR Code" width="150">
+          <p>Scan this QR code to make a payment</p>
+        </div>
+      </div>
+      
+      <!-- Discount Section -->
+      <div class="discount-section">
+        <label for="discountCoupon">Discount Coupon:</label>
+        <input type="text" id="discountCoupon" placeholder="Enter Coupon Code">
+        <button type="button" id="applyDiscountBtn">Apply</button>
+        <p id="discountAmount">Discount: ₹0</p>
+        <p id="finalTotal">Final Total: ₹<span id="totalAmount">0</span></p>
+      </div>
+
+      <!-- Display Product Price -->
+      <div class="form-group">
+        <label for="itemPrice">Item Price:</label>
+        <span id="itemPrice">₹0</span> <!-- This will be updated dynamically -->
+      </div>
+      
+      <button type="submit" class="btn submit-btn">Submit Order</button>
+      <button type="button" class="btn cancel-btn">Cancel Order</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="close-modal btn">Close</button>
+  </div>
+</div>
+
+
+<div class="order-message" style="display: none;">Your order will be delivered in 30 minutes from Riya Sweets Kumour Pithoragarh.</div>
+
+
+</section>
+<!-- cart end  -->
+
+<!-- contact section start -->
+<section id="contact" class="contact">
+  <div class="container">
+
+    <div class="section-title">
+      <h2  class="display-7 fw-bold" style="text-align: center;"><span style="color:orange">Contact</span> Us</h2>
+      <p  style="text-align: center;">Contact us using this website. We appreciate your comments and questions. Our first goal is making sure you are satisfied.</p>
+    </div>
+  </div>
+
+  <div class="map">
+    <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.7582573238137!2d80.21312377476923!3d29.581636275160037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a12552c17227b1%3A0x3ba193cf8dfdbb09!2sPPTech%20Computer%20And%20Training%20Center!5e0!3m2!1sen!2sin!4v1711689394470!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <div class="container mt-5">
+
+    <div class="info-wrap">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 info">
+          <i class="bi bi-geo-alt"></i>
+          <h4>Location:</h4>
+          <p>Kumour Chauraha<br>Pithoragrah 262501</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+          <i class="bi bi-clock"></i> 
+          <h4>Open Hours:</h4>
+          <p>Monday-Saturday:<br>07:00 AM - 2300 PM</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+          <i class="bi bi-envelope"></i>
+          <h4>Email:</h4>
+          <p>info@example.com<br>contact@example.com</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+          <i class="bi bi-phone"></i>
+          <h4>Call:</h4>
+          <p>+91 91234 56789<br>+91 98765 43210</p>
+        </div>
+      </div>
+    </div>
+    <form action="forms/contact.php" method="post" role="form" class="php-email-form" onsubmit="sendEmail(); return false;">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+      </div>
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+      </div>
+      <div class="my-3">
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Your message has been sent. Thank you!</div>
+      </div>
+      <div class="text-center"><button type="submit">Send Message</button></div>
+    </form>
+
+  </div>
+</section>
+<!-- End Contact Section -->
+</main>
+
+  <!--  Footer  -->
+<footer id="footer">
+  <div class="container">
+    <h3>Delicious</h3>
+    <p  style="text-align: center;">Aesthetically pleasing and user-friendly, with comprehensive menus. makes choosing where to eat easier by acting as the ideal online culinary guide. Extremely productive</p>
+    <div class="social-links">
+      <a href="#" class="twitter"><span class="bx bxl-twitter"></span></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; Copyright <strong><span>Delicious</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="#">Little Bits</a>
+    </div>
+  </div>
+</footer>
+  <!-- End Footer -->
+
+<!-- cuteAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- smtp mail -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script src="script.js">
+
+  function showMessage(event, status, menuId) {
+     event.preventDefault(); // Prevent default link behavior
+ 
+     // Remove 'active' class from all links in the specified menu
+     const navMenu = document.getElementById(menuId);
+     const navLinks = navMenu.querySelectorAll('.nav-link');
+     navLinks.forEach(link => {
+       link.classList.remove('active');
+     });
+ 
+     // Add 'active' class to the clicked link
+     event.target.classList.add('active');
+ 
+     // Add your logic to show messages based on the status
+     console.log('Showing messages for status:', status);
+   }
+
+  //  google sheets
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzMIWNGKEi6FO2ub4iz8EJQVY9wnOJJ9wf4bpVDQRJ-rI-h9H0Rh_LbDnpAu8UwonzL/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+ </script>
+
+</body>
+</html>

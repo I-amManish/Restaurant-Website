@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="icon" type="image/x-icon" href="Restaurent_images/pie_logo.png">
+    <link rel="stylesheet" href="events_css.css">
+    <!-- bootstrap files -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+  <!-- heading font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <!-- paragraph fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  
+<!-- boxicons link -->
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- boostrap icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-form');
+        const errorMessageContainer = document.querySelector('.error-message');
+        const successMessageContainer = document.querySelector('.sent-message');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Reset error and success messages
+            errorMessageContainer.style.display = 'none';
+            successMessageContainer.style.display = 'none';
+
+            // Validate form fields
+            let isValid = true;
+            form.querySelectorAll('input, textarea').forEach(function (input) {
+                if (!input.checkValidity()) {
+                    isValid = false;
+                    displayErrorMessage(input.validationMessage);
+                }
+            });
+
+            if (isValid) {
+                // Simulate form submission (replace with actual submission code)
+                setTimeout(function () {
+                    displaySuccessMessage();
+                    form.reset(); // Reset form after successful submission
+                }, 1000);
+            }
+        });
+
+        function displayErrorMessage(message) {
+            errorMessageContainer.textContent = message;
+            errorMessageContainer.style.display = 'block';
+        }
+
+        function displaySuccessMessage() {
+            successMessageContainer.style.display = 'block';
+        }
+    });
+// book a ticket
+document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById('ticket-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            sendEmail(); // Call the sendEmail function
+        });
+    });
+
+    function sendEmail() {
+    var yourName = document.getElementById("your-name").value;
+    var yourEmail = document.getElementById("your-email").value;
+    var ticketType = document.getElementById("ticket-type").value;
+    var offerCode = document.getElementById("offer-code").value; // Get the offer code value
+
+    // Your email configuration
+    Email.send({
+        Host: "smtp.yourmailserver.com",
+        Username: "immanish0003@gmail.com",
+        Password: "CA82AB992D43F4290D78FC0887C36DB76F39",
+        To: 'immanish0003@gmail.com',
+        From: "immanish0003@gmail.com",
+        Subject: "Ticket Purchase",
+        Body: "Name: " + yourName + "<br>Email: " + yourEmail + "<br>Ticket Type: " + ticketType + "<br>Offer Code: " + offerCode // Include offer code in the email body
+    }).then(function (message) {
+        Swal.fire({
+            title: "Success!",
+            text: "Ticket Booked Successfully",
+            icon: "success"
+        });
+        // You can optionally close the modal or do other actions here
+    }).catch(function (error) {
+        console.error("Error sending email:", error);
+        alert("Failed to send email. Please try again later.");
+    });
+}
+
+
+// book a ticket end
+
+// offer popup start
+document.addEventListener("DOMContentLoaded", function () {
+        showOfferPopup();
+    });
+
+    function showOfferPopup() {
+        Swal.fire({
+            title: "Today's Offer!",
+            html: "Get 20% off on all ticket types! Use code: TODAY20",
+            icon: "info"
+        });
+    }
+// offer popup end
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 20 ||
+    document.documentElement.scrollTop > 20
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+<style>
+    h1, h2, h3, h4, h5, h5{
+    font-family: "Satisfy", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+     /* Custom CSS for changing color on hover */
+  .navbar-light .navbar-nav .nav-link:hover,
+        .navbar-light .navbar-brand:hover {
+            color: orange !important;
+        }
+/* carousel control css end */
+
+/* Active and hover styles for navbar links */
+.navbar-nav .nav-item .nav-link {
+    color: white; /* Default color */
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
+    color: orange; /* Hover and active color */
+}
+
+/* active hove css end */
+html{
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Poppins", sans-serif;
+    color: #444444;
+  }
+  /* navigation bar scroll css start */
+  /* Custom styles */
+  .navbar.scrolled {
+    background-color: #333; /* Change this to the desired color when scrolled */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition */
+  }
+  /* Navigation bar scroll css end */
+
+  .navbar-brand{
+    font-family: "Satisfy", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 32px;
+    color: white;
+  }
+  .nav-link{
+    color: white;
+  }
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-brand:hover {
+      color: orange !important;
+  }
+/* carousel control css end */
+
+/* Active and hover styles for navbar links */
+.navbar-nav .nav-item .nav-link {
+color: white; /* Default color */
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link.active {
+color: orange; /* Hover and active color */
+}
+
+/* active hove css end */
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+</style>
+</head>
+<body>
+  <!-- back to top button -->
+  <button type="button" class="btn btn-danger btn-floating btn-lg"  id="btn-back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- back to to button -->
+<header>
+    <!-- Navigation bar start here -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.308); color: white;">
+      <div id="logo" class="me-auto">
+        <a href="index.html" class="scrollto"><img src="Restaurent_images/theeventlogoUpdated-removebg-preview.png" alt="The Event" title="The Event" width="250px" height="60px"></a>
+      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link scrollto" href="event.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#hero">The Event</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#speakers">Speakers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="index.html">Delicious</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link scrollto" href="#schedule">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#venue">Venue</a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link scrollto" href="#about_us">Contact us</a>
+          </li>
+            
+            <a id="navbookatable" href="#buy-tickets" style="text-decoration: none;">Buy Tickets</a>
+        </ul>
+        <div class="custom-search">
+            <div class="d-flex align-items-center">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+                <input placeholder="Search" type="search" class="form-control align-content-end" style="text-align: center;">
+            </div>
+        </div>
+    </div>
+</nav>
+</header>
+<!-- Navigation bar end here -->
+<!-- event details start -->
+<section id="hero">
+  <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+    <h1 class="mb-4 pb-0">The <br><span>Marketing</span> Event</h1>
+    <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+    <a href="#about" class="about-btn scrollto" style="text-decoration: none;">About The Event</a>
+  </div>
+</section>
+<section id="about">
+  <div class="container position-relative" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>About The Event</h2>
+        <p>Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
+          accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
+          est ut optio sequi unde.</p>
+      </div>
+      <div class="col-lg-3">
+        <h3>Where</h3>
+        <p>Downtown Conference Center, New York</p>
+      </div>
+      <div class="col-lg-3">
+        <h3>When</h3>
+        <p>Monday to Wednesday<br>10-12 December</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- event details end -->
+
+<!-- event invitation start here -->
+<section id="speakers">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2 style="font-size: 32px; font-weight: bold; text-align: center;">Event Speakers</h2>
+      <p style="text-align: center;">Here are some of our speakers</p>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+          <img src="Restaurent_images/events/Invitations/celeb_1.jpg" alt="Speaker 1" class="img-fluid">
+          <div class="details">
+            <h3><a href="speaker-details.html" style="text-decoration: none;">Brenden Legros</a></h3>
+            <p>Quas alias incidunt</p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+          <img src="Restaurent_images/events/Invitations/chefs.jpg" alt="Speaker 2" class="img-fluid">
+          <div class="details">
+            <h3><a href="speaker-details.html" style="text-decoration: none;">Hubert Hirthe</a></h3>
+            <p>Consequuntur odio aut</p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+          <img src="Restaurent_images/events/Invitations/celebrity2.jpg" alt="Speaker 3" class="img-fluid">
+          <div class="details">
+            <h3><a href="speaker-details.html" style="text-decoration: none;">Cole Emmerich</a></h3>
+            <p>Fugiat laborum et</p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+          <img src="Restaurent_images/events/Invitations/influencers.jpg" alt="Speaker 4" class="img-fluid">
+          <div class="details">
+            <h3><a href="speaker-details.html" style="text-decoration: none;">Jack Christiansen</a></h3>
+            <p>Debitis iure vero</p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+          <img src="Restaurent_images/events/Invitations/entrepreneur.jpg" alt="Speaker 5" class="img-fluid">
+          <div class="details">
+            <h3><a href="speaker-details.html" style="text-decoration: none;">Alejandrin Littel</a></h3>
+            <p>Qui molestiae natus</p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+          <img src="Restaurent_images/events/Invitations/music_band.jpg" alt="Speaker 6" class="img-fluid">
+          <div class="details">
+            <h3><a href="speaker-details.html" style="text-decoration: none;">Willow Trantow</a></h3>
+            <p>Non autem dicta</p>
+            <div class="social">
+              <a href=""><i class="bi bi-twitter"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- event invitation end here -->
+
+
+
+<!-- schedule start here -->
+<!-- ======= Schedule Section ======= -->
+<section id="schedule" class="section-with-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2 style="font-size: 32px; font-weight: bold; text-align: center;">Event Schedule</h2>
+      <p style="text-align: center;">Here is our event schedule</p>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
+      <li class="nav-item">
+        <a class="nav-link active" href="#day-1" role="tab" data-bs-toggle="tab">Day 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#day-2" role="tab" data-bs-toggle="tab">Day 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#day-3" role="tab" data-bs-toggle="tab">Day 3</a>
+      </li>
+    </ul>
+
+    <h3 class="sub-heading">Voluptatem nulla veniam soluta et corrupti consequatur neque eveniet officia. Eius
+      necessitatibus voluptatem quis labore perspiciatis quia.</h3>
+
+    <div class="tab-content row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+      <!-- Schdule Day 1 -->
+      <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>09:30 AM</time></div>
+          <div class="col-md-10">
+            <h4>Registration</h4>
+            <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>10:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/1.jpg" alt="Brenden Legros">
+            </div>
+            <h4>Keynote <span>Brenden Legros</span></h4>
+            <p>Facere provident incidunt quos voluptas.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>11:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/2.jpg" alt="Hubert Hirthe">
+            </div>
+            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
+            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>12:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/3.jpg" alt="Cole Emmerich">
+            </div>
+            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
+            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>02:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/4.jpg" alt="Jack Christiansen">
+            </div>
+            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
+            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>03:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/5.jpg" alt="Alejandrin Littel">
+            </div>
+            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
+            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>04:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/6.jpg" alt="Willow Trantow">
+            </div>
+            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
+            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Schdule Day 1 -->
+
+      <!-- Schdule Day 2 -->
+      <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>10:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/1.jpg" alt="Brenden Legros">
+            </div>
+            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
+            <p>Facere provident incidunt quos voluptas.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>11:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/2.jpg" alt="Hubert Hirthe">
+            </div>
+            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
+            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>12:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/3.jpg" alt="Cole Emmerich">
+            </div>
+            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
+            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>02:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/4.jpg" alt="Jack Christiansen">
+            </div>
+            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
+            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>03:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/5.jpg" alt="Alejandrin Littel">
+            </div>
+            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
+            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>04:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/6.jpg" alt="Willow Trantow">
+            </div>
+            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
+            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Schdule Day 2 -->
+
+      <!-- Schdule Day 3 -->
+      <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>10:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/2.jpg" alt="Hubert Hirthe">
+            </div>
+            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
+            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>11:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/3.jpg" alt="Cole Emmerich">
+            </div>
+            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
+            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>12:00 AM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/1.jpg" alt="Brenden Legros">
+            </div>
+            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
+            <p>Facere provident incidunt quos voluptas.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>02:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/4.jpg" alt="Jack Christiansen">
+            </div>
+            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
+            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>03:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/5.jpg" alt="Alejandrin Littel">
+            </div>
+            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
+            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
+          </div>
+        </div>
+
+        <div class="row schedule-item">
+          <div class="col-md-2"><time>04:00 PM</time></div>
+          <div class="col-md-10">
+            <div class="speaker">
+              <img src="Restaurent_images/events/speakers/6.jpg" alt="Willow Trantow">
+            </div>
+            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
+            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- End Schdule Day 2 -->
+
+    </div>
+
+  </div>
+
+</section><!-- End Schedule Section -->
+<!-- schedule end here -->
+
+<!-- ======= Venue Section ======= -->
+<section id="venue">
+
+  <div class="container-fluid" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2 style="font-size: 24px; font-weight: bold; text-align: center;">Event Venue</h2>
+      <p style="text-align: center;">Event venue location info and gallery</p>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <div class="row g-0">
+      <div class="col-lg-6 venue-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-lg-6 venue-info">
+        <div class="row justify-content-center">
+          <div class="col-11 col-lg-8 position-relative">
+            <h3>Downtown Conference Center, New York</h3>
+            <p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid venue-gallery-container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row g-0">
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/1.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/1.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/2.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/2.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/3.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/3.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/4.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/4.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/5.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/5.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/6.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/6.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/7.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/7.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="venue-gallery">
+          <a href="Restaurent_images/events/venue-gallery/8.jpg" class="glightbox" data-gall="venue-gallery">
+            <img src="Restaurent_images/events/venue-gallery/8.jpg" alt="" class="img-fluid">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- End Venue Section -->
+
+<!-- ======= Hotels Section ======= -->
+<section id="hotels" class="section-with-bg">
+
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2 style="font-size: 32px; font-weight: bold; text-align: center;">Hotels</h2>
+      <p style="text-align: center;">Her are some nearby hotels</p>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="hotel">
+          <div class="hotel-img">
+            <img src="Restaurent_images/events/hotels/1.jpg" alt="Hotel 1" class="img-fluid">
+          </div>
+          <h3><a href="#" style="text-decoration: none;">Hotel 1</a></h3>
+          <div class="stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p>0.4 Mile from the Venue</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="hotel">
+          <div class="hotel-img">
+            <img src="Restaurent_images/events/hotels/2.jpg" alt="Hotel 2" class="img-fluid">
+          </div>
+          <h3><a href="#" style="text-decoration: none;">Hotel 2</a></h3>
+          <div class="stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill-half-full"></i>
+          </div>
+          <p>0.5 Mile from the Venue</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="hotel">
+          <div class="hotel-img">
+            <img src="Restaurent_images/events/hotels/3.jpg" alt="Hotel 3" class="img-fluid">
+          </div>
+          <h3><a href="#" style="text-decoration: none;">Hotel 3</a></h3>
+          <div class="stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <p>0.6 Mile from the Venue</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- End Hotels Section -->
+
+<!-- gallary start here -->
+<!-- Gallery -->
+<div class="row">
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <img
+      src="Restaurent_images/events/gallery/pexels-fu-zhichao-176355-587741.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+
+    <img
+      src="Restaurent_images/events/gallery/pexels-wendywei-1540406.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="Restaurent_images/events/gallery/pexels-bohlemedia-1114425.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Mountains in the Clouds"
+    />
+
+    <img
+      src="Restaurent_images/events/gallery/pexels-olly-787961.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="Restaurent_images/events/gallery/pexels-grizzlybear-399610.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Waves at Sea"
+    />
+
+    <img
+      src="Restaurent_images/events/gallery/pexels-kevinbidwell-1395062.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Yosemite National Park"
+    />
+  </div>
+</div>
+<!-- Gallery -->
+<!-- galley end  -->
+
+<!-- supports section start here -->
+<section id="supporters" class="section-with-bg">
+
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2 style="font-size: 32px; font-weight: bold; text-align: center;">Sponsors</h2>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <div class="row g-0 supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/1.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/2.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/3.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/4.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/5.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/6.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/7.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="supporter-logo">
+          <img src="Restaurent_images/events/supporters/8.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- supporters section end here -->
+
+<!-- F.A.Q start here -->
+<section id="faq">
+
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2 style="font-size: 32px; font-weight: bold; text-align: center;">F.A.Q </h2>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-9">
+
+        <ul class="faq-list">
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<!-- F.A.Q start here -->
+
+<!-- buy tickets start here -->
+<section id="buy-tickets" class="section-with-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2 style="font-size: 24px; font-weight: bold; text-align: center;">Buy Tickets</h2>
+      <p style="text-align: center;">Choose an event, select a ticket type, provide the required information, and complete the payment process.</p>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">Standard Access</h5>
+            <h6 class="card-price text-center">₹200</h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
+              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Community Access</li>
+              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
+              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
+            </ul>
+            <hr>
+            <div class="text-center">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#buy-ticket-modal" data-ticket-type="standard-access">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">Pro Access</h5>
+            <h6 class="card-price text-center">₹500</h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
+              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
+              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
+            </ul>
+            <hr>
+            <div class="text-center">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#buy-ticket-modal" data-ticket-type="pro-access">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pro Tier -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">Premium Access</h5>
+            <h6 class="card-price text-center">₹1000</h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>Workshop Access</li>
+              <li><span class="fa-li"><i class="fa fa-check"></i></span>After Party</li>
+            </ul>
+            <hr>
+            <div class="text-center">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#buy-ticket-modal" data-ticket-type="premium-access">Buy Now</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal Order Form -->
+  <div id="buy-ticket-modal" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Buy Tickets</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="ticket-form" method="POST" action="#">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="your-name" id="your-name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" name="your-email" id="your-email" placeholder="Your Email">
+                    </div>
+                    <div class="form-group mt-3">
+                        <select id="ticket-type" name="ticket-type" class="form-select">
+                            <option value="">-- Select Your Ticket Type --</option>
+                            <option value="standard-access">Standard Access</option>
+                            <option value="pro-access">Pro Access</option>
+                            <option value="premium-access">Premium Access</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" name="offer-code" id="offer-code" placeholder="Offer Code">
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn">Buy Now</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</div>
+
+</section>
+<!-- buy tickets end here -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="section-bg">
+
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2 style="font-size: 24px; font-weight: bold; text-align: center;">Contact Us</h2>
+      <p style="text-align: center;">Nihil officia ut sint molestiae tenetur.</p>
+      <div class="d-flex align-items-center justify-content-center" style="margin-bottom: 50px;">
+        <div style="height: 5px; width: 70px; background-color: red;"></div>
+    </div>
+    </div>
+
+    <div class="row contact-info">
+
+      <div class="col-md-4">
+        <div class="contact-address">
+          <i class="bi bi-geo-alt"></i>
+          <h3>Address</h3>
+          <address>A108 Adam Street, NY 535022, USA</address>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="contact-phone">
+          <i class="bi bi-phone"></i>
+          <h3>Phone Number</h3>
+          <p><a href="tel:+155895548855"  style="text-decoration: none;">+1 5589 55488 55</a></p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="contact-email">
+          <i class="bi bi-envelope"></i>
+          <h3>Email</h3>
+          <p><a href="mailto:info@example.com" style="text-decoration: none;">info@example.com</a></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form">
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form" id="contact-form" onsubmit="sendEmail(); return false;">
+          <div class="row">
+              <div class="form-group col-md-6">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+          </div>
+          <div class="form-group mt-3">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <div class="my-3">
+              <div class="loading" style="display: none;">Loading</div>
+              <div class="error-message" style="display: none;"></div>
+              <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit" id="submit-form">Send Message</button></div>
+      </form>
+  </div>
+
+  </div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- footer start here -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-info">
+          <img src="Restaurent_images/theeventlogoUpdated-removebg-preview.png" alt="TheEvenet" width="200px">
+          <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            A108 Adam Street <br>
+            New York, NY 535022<br>
+            United States <br>
+            <strong>Phone:</strong> +1 5589 55488 55<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bi bi-reddit"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong>TheEvent</strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="#">Little Bits</a>
+    </div>
+  </div>
+</footer>
+<!-- footer end here -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
